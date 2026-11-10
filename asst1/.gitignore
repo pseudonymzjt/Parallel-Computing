@@ -1,0 +1,11 @@
+objs/
+*.o
+*.d
+.DS_Store
+prog1_mandelbrot_threads/mandelbrot
+prog3_mandelbrot_ispc/mandelbrot_ispc
+prog4_sqrt/sqrt
+prog5_saxpy/saxpy
+prog2_vecintrin/vrun
+*.ppm
+*.ispc.h
