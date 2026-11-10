@@ -22,4 +22,4 @@ Clear enough.
 
 Contact me at [email](zhoujintian25@mails.ucas.ac.cn) for any specific issue about this repo.
 
-MIT License.
+MULAN Public License.
