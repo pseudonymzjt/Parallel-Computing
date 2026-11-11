@@ -33,3 +33,7 @@ $(OBJDIR)/%.o: $(COMMONDIR)/%.cpp
 
 $(OBJDIR)/main.o: $(COMMONDIR)/CycleTimer.h
 
+THREAD_NUM?=2
+
+convert:
+	convert mandelbrot-thread.ppm 'output$(THREAD_NUM).png'

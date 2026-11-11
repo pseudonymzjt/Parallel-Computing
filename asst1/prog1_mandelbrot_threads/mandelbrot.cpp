@@ -108,6 +108,8 @@ typedef struct {
     int* output;
     int threadId;
     int numThreads;
+    double* startTime;
+    double* endTime;
 } WorkerArgs;
 
 
@@ -122,7 +124,19 @@ void* workerThreadStart(void* threadArgs) {
 
     // TODO: Implement worker thread here.
 
-    printf("Hello world from thread %d\n", args->threadId);
+    *(args->startTime) = CycleTimer::currentSeconds();
+
+    int startRow = args->height * (float)args->threadId / args->numThreads;
+    int endRow = args->height * (float)(args->threadId + 1) / args->numThreads;
+
+    // printf("Thread %d: processing rows [%d, %d)\n", args->threadId, startRow, endRow);
+
+    mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, args->height, 
+        startRow, endRow, args->maxIterations, args->output);
+    
+    // printf("Hello world from thread %d\n", args->threadId);
+
+    *(args->endTime) = CycleTimer::currentSeconds();
 
     return NULL;
 }
@@ -149,9 +163,23 @@ void mandelbrotThread(
     pthread_t workers[MAX_THREADS];
     WorkerArgs args[MAX_THREADS];
 
+    double startTime[numThreads];
+    double endTime[numThreads];
+
     for (int i=0; i<numThreads; i++) {
         // TODO: Set thread arguments here.
+        args[i].numThreads = numThreads;
         args[i].threadId = i;
+        args[i].width = width;
+        args[i].height = height;
+        args[i].x0 = x0;
+        args[i].y0 = y0;
+        args[i].x1 = x1;
+        args[i].y1 = y1;
+        args[i].maxIterations = maxIterations;
+        args[i].output = output;
+        args[i].startTime = startTime + i;
+        args[i].endTime = endTime + i;
     }
 
     // Fire up the worker threads.  Note that numThreads-1 pthreads
@@ -166,4 +194,7 @@ void mandelbrotThread(
     // wait for worker threads to complete
     for (int i=1; i<numThreads; i++)
         pthread_join(workers[i], NULL);
+
+    for (int i=0; i<numThreads; i++)
+        printf("[mandelbrot thread %3d]:\t[%.3f] ms\n", i, (endTime[i] - startTime[i]) * 1000);
 }
