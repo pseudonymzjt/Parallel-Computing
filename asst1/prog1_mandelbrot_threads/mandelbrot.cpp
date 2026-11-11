@@ -126,13 +126,14 @@ void* workerThreadStart(void* threadArgs) {
 
     *(args->startTime) = CycleTimer::currentSeconds();
 
-    int startRow = args->height * (float)args->threadId / args->numThreads;
-    int endRow = args->height * (float)(args->threadId + 1) / args->numThreads;
+    // int startRow = args->height * (float)args->threadId / args->numThreads;
+    // int endRow = args->height * (float)(args->threadId + 1) / args->numThreads;
 
     // printf("Thread %d: processing rows [%d, %d)\n", args->threadId, startRow, endRow);
 
-    mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, args->height, 
-        startRow, endRow, args->maxIterations, args->output);
+    for (unsigned i=args->threadId; i<args->height; i+=args->numThreads)
+        mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, args->height, 
+            i, i + 1, args->maxIterations, args->output);
     
     // printf("Hello world from thread %d\n", args->threadId);
 

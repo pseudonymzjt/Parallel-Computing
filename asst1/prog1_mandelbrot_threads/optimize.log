@@ -1,0 +1,33 @@
+Script started on 2026-11-11 20:21:41+08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="143" LINES="10"]
+]0;zhoujintian@archlinux:~/Parallel-Computing/asst1/prog1_mandelbrot_threads[?2004h[zhoujintian@archlinux prog1_mandelbrot_threads]$ ./mandelbrot -v 5 -t 4
+[?2004l[mandelbrot serial]:		[31.834] ms
+Wrote image file mandelbrot-serial.ppm
+[mandelbrot thread   0]:	[8.932] ms
+[mandelbrot thread   1]:	[10.993] ms
+[mandelbrot thread   2]:	[19.255] ms
+[mandelbrot thread   3]:	[14.933] ms
+[mandelbrot thread   0]:	[7.984] ms
+[mandelbrot thread   1]:	[7.908] ms
+[mandelbrot thread   2]:	[15.072] ms
+[mandelbrot thread   3]:	[13.285] ms
+[mandelbrot thread   0]:	[10.453] ms
+[mandelbrot thread   1]:	[13.606] ms
+[mandelbrot thread   2]:	[10.224] ms
+[mandelbrot thread   3]:	[11.551] ms
+[mandelbrot thread   0]:	[9.388] ms
+[mandelbrot thread   1]:	[8.484] ms
+[mandelbrot thread   2]:	[8.823] ms
+[mandelbrot thread   3]:	[8.095] ms
+[mandelbrot thread   0]:	[9.821] ms
+[mandelbrot thread   1]:	[12.064] ms
+[mandelbrot thread   2]:	[12.846] ms
+[mandelbrot thread   3]:	[9.719] ms
+[mandelbrot thread]:		[9.495] ms
+Wrote image file mandelbrot-thread.ppm
+++++				(3.35x speedup from 4 threads)
+]0;zhoujintian@archlinux:~/Parallel-Computing/asst1/prog1_mandelbrot_threads[?2004h[zhoujintian@archlinux prog1_mandelbrot_threads]$ echo ""m"y" "v"i"r"t"u"a"l" "m"c"[1P"a"c"h"i"n"e" "o"n"l"y" "h"a"s" "4" "c"o"r"e"s"," "t"h"u"s" "u"s"i"n"g" "4" "t"h"r"e"a"d"s"."[C
+[?2004lmy virtual machine only has 4 cores, thus using 4 threads.
+]0;zhoujintian@archlinux:~/Parallel-Computing/asst1/prog1_mandelbrot_threads[?2004h[zhoujintian@archlinux prog1_mandelbrot_threads]$ exit
+[?2004lexit
+
+Script done on 2026-11-11 20:22:24+08:00 [COMMAND_EXIT_CODE="0"]
