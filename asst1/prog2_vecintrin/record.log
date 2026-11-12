@@ -1,0 +1,19 @@
+Script started on 2026-11-12 19:43:36+08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="143" LINES="13"]
+]0;zhoujintian@archlinux:~/Parallel-Computing/asst1/prog2_vecintrin[?2004h[zhoujintian@archlinux prog2_vecintrin]$ ./vrun
+[?2004l[1;31mCLAMPED EXPONENT[0m (required) 
+Results matched with answer!
+****************** Printing Vector Unit Statistics *******************
+Vector Width:              8
+Total Vector Instructions: 146
+Vector Utilization:        93.407534%
+Utilized Vector Lanes:     1091
+Total Vector Lanes:        1168
+************************ Result Verification *************************
+Passed!!!
+
+[1;31mARRAY SUM[0m (bonus) 
+Passed!!!
+]0;zhoujintian@archlinux:~/Parallel-Computing/asst1/prog2_vecintrin[?2004h[zhoujintian@archlinux prog2_vecintrin]$ exit
+[?2004lexit
+
+Script done on 2026-11-12 19:43:43+08:00 [COMMAND_EXIT_CODE="0"]
